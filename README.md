@@ -28,10 +28,30 @@ This repository contains the complete Infrastructure as Code (IaC) to provision 
 
 ## 🏛 Architecture Overview
 
-<div align="center">
-  <img src="architecture/diagram.mermaid" alt="Architecture Diagram" width="800">
-</div>
+```mermaid
+graph TD
+    User([User]) -->|HTTP| ALB[Application Load Balancer]
+    
+    subgraph AWS VPC
+        ALB -->|Forward| TG[Target Group]
+        TG -->|HTTP:80| ECS[Amazon ECS Cluster]
+        
+        subgraph Fargate Service
+            ECS --> Task[ECS Task: Nginx Container]
+        end
+    end
+    
+    Task -->|Pull Image| ECR[Amazon ECR Repository]
+    Task -->|Push Logs| CW[CloudWatch Logs]
 
+    style User fill:#f9f9f9,stroke:#333,stroke-width:2px
+    style ALB fill:#ff9900,stroke:#232f3e,stroke-width:2px,color:white
+    style ECS fill:#ff9900,stroke:#232f3e,stroke-width:2px,color:white
+    style Task fill:#ff9900,stroke:#232f3e,stroke-width:2px,color:white
+    style ECR fill:#ff9900,stroke:#232f3e,stroke-width:2px,color:white
+    style CW fill:#ff4f8b,stroke:#232f3e,stroke-width:2px,color:white
+    style TG fill:#8c4fff,stroke:#232f3e,stroke-width:2px,color:white
+```
 ### 🛠 AWS Services Used
 - **VPC (Virtual Private Cloud)**: Custom network with public subnets and internet gateways.
 - **Application Load Balancer (ALB)**: Intelligent traffic routing to healthy containers.
