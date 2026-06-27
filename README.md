@@ -8,10 +8,11 @@
   <img src="https://img.shields.io/badge/Amazon-ECS-FF9900?logo=amazon-ecs&logoColor=white" alt="Amazon ECS" />
   <img src="https://img.shields.io/badge/Terraform-1.5+-844FBA?logo=terraform&logoColor=white" alt="Terraform" />
   <img src="https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&logoColor=white" alt="Docker" />
-  <img src="https://img.shields.io/badge/Status-Production_Ready-brightgreen" alt="Status" />
+  <img src="https://img.shields.io/badge/Status-Project_Complete-brightgreen" alt="Status" />
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="License" />
 </p>
 
+> **Status:** The project is complete. It successfully provisions a production-ready AWS Serverless environment autonomously from start to finish.
 ---
 
 ## 📖 Project Overview
